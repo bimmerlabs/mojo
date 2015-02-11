@@ -514,8 +514,27 @@ L<Mojolicious::Routes::Route> object.
   $r           = $r->to('MyApp');
   $r           = $r->to('MyApp', foo => 'bar');
   $r           = $r->to('MyApp', {foo => 'bar'});
+  
+Set default parameters for this route's generated stash. Depending on the
+number and quality of parameters, the first and the second ones might be
+handled as special case, e.g. when they are references, see examples
+above.
 
-Set default parameters for this route.
+There are three keys that have a special meaning in the stash, allowing
+you to set a function to be called as the result of the match of this
+route:
+
+=over
+
+=item C<action> and C<controller>
+
+set the function C<action> to call inside the class C<controller> 
+
+=item C<cb>
+
+sets a callback function as a reference to a sub
+
+=back
 
 =head2 to_string
 
